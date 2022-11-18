@@ -1,7 +1,8 @@
+import React from 'react';
 import PamelasTopPicks from '../assets/images/img-top-picks.svg';
 import Conscious from '../assets/images/conscious.svg';
 
-const ConsciousSection = () => {
+const ConsciousSection: React.FC = () => {
   return (
     <section className="topPicksConscious">
         <div className="container">

@@ -3,7 +3,7 @@ import LeftImage from '../assets/images/img-2.svg';
 import RightImage from '../assets/images/img-1.svg';
 
 
-const ShowcaseSection = () => {
+const ShowcaseSection: React.FC  = () => {
   return (
     <section className="showcase">
         <div className="container-fluid">

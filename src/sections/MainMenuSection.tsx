@@ -4,7 +4,7 @@ import MenuIcon from '../components/MenuIcon'
 import { useShoppingCart } from '../context/ShoppingCartContext'
 
 
-const MainMenuSection = () => {
+const MainMenuSection: React.FC  = () => {
   const [showMenu, setShowMenu] = useState(false)
   const { cartQuantity } = useShoppingCart() //cartquantity kommer från vårt useshoppingcart som kommer från vår context 
 

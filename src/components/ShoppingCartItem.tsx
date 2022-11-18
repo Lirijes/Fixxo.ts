@@ -1,7 +1,8 @@
 import React from 'react'
 import { useShoppingCart } from '../context/ShoppingCartContext'
 
-const ShoppingCartItem = ({item}) => {
+
+const ShoppingCartItem: React.FC = ({item}) => {
     const { incrementQuantity, decrementQuantity, removeItem } = useShoppingCart()
 
   return (

@@ -1,9 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useShoppingCart } from '../context/ShoppingCartContext'
+import { Product } from '../models/productModel'
 
+interface ProductCardProps {
+    item: Product
+}
 
-const ProductCard = ({item}) => {
+const ProductCard: React.FC<ProductCardProps> = ({item}) => {
     const { incrementQuantity } = useShoppingCart()
 
   return (

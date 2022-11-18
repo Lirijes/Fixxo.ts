@@ -1,7 +1,7 @@
 import React from 'react'
 import MenuIcon from '../components/MenuIcon'
 
-const BottomMenuSection = () => {
+const BottomMenuSection: React.FC = () => {
   return (
     <section className="bottom-menu">
         <div className="container">

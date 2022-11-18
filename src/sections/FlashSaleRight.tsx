@@ -1,7 +1,7 @@
 import React from 'react'
 import ProductCard from '../components/ProductCard'
 
-const FlashSaleRight = ({items = []}) => {
+const FlashSaleRight: React.FC  = ({items = []}) => {
 
   return (
     <section className="flash-sale-right container">

@@ -2,12 +2,14 @@ import React, { createContext, useState, useContext } from "react";
 import ShoppingCart from "../components/ShoppingCart";
 
 export interface ShoppingCartContextType {
-    cartItems: number
-    setCartItems: number
-    cartQuantity: any
-    incrementQuantity: any
-    decrementQuantity: any
-    removeItem: any
+    cartItems: number | undefined
+    setCartItems: React.Dispatch<React.SetStateAction<number | undefined>>
+    cartQuantity: number
+    incrementQuantity: number
+    decrementQuantity: number
+    removeItem: (articleNumber: string) => void
+    quantity: string | number
+    item: string
 }
 
 interface ShoppingCartProviderProps {
@@ -21,7 +23,7 @@ export const useShoppingCart = () => {
 }
 
 export const ShoppingCartProvider = ({children} : ShoppingCartProviderProps) => {
-    const [cartItems, setCartItems] = useState([])
+    const [cartItems, setCartItems] = useState<any>()
 
     const cartQuantity = cartItems.reduce(
         (quantity, item) => item.quantity + quantity, 0
