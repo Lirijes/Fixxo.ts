@@ -1,9 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import TodoProvider from './context/TodoContext';
 import './Style.min.css'; //ändrat från ./App.css
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ProductContext, FeaturedProductContext, SaleProductContext } from './context/Context'
 import { ShoppingCartProvider } from './context/ShoppingCartContext'
 
 import Home from './views/Home';
@@ -19,42 +18,11 @@ import WishList from './views/WishList';
 
 function App() {
 
-  const [allProducts, setallProducts] = useState ([]) /* listan av produkter läggs in här för att kunna nås av olika sidor genom att lägga till items={products} på den vyn där man vill nå den */
-  const [featuredProducts, setfeaturedProducts] = useState ([])
-  const [saleProducts, setsaleProducts] = useState([])
-
-
-  useEffect(() => { /* vi hämtar produktinformation från vår API */
-    const fetchallProducts = async () => {
-      const result = await fetch('https://win22-webapi.azurewebsites.net/api/products')
-      setallProducts(await result.json())
-    }
-    fetchallProducts()
-
-    const fetchfeaturedProducts = async () => {
-      const result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=8')
-      setfeaturedProducts(await result.json())
-    }
-    fetchfeaturedProducts()
-
-    const fetchsaleProducts = async () => {
-      const result = await fetch('https://win22-webapi.azurewebsites.net/api/products?take=4')
-      setsaleProducts(await result.json())
-    }
-    fetchsaleProducts()
-
-  }, [setallProducts, setfeaturedProducts, setsaleProducts]) /* [] är en trigger */
-
-
-
 const App: React.FC = () => {
 
   return (
     <BrowserRouter>
         <TodoProvider>
-        <ProductContext.Provider value={allProducts}> {/* alla routes som vi har kan utnyttja denna provider som vi har  */}
-        <FeaturedProductContext.Provider value={featuredProducts}>
-        <SaleProductContext.Provider value={saleProducts}>
         <ShoppingCartProvider>
             <Routes>
                 <Route path="/" element={<Home />} /> {/* dessa gör att man kan navigera sig mellan knappar/länkar/kategorier */}
@@ -68,10 +36,7 @@ const App: React.FC = () => {
                 <Route path="/wishlist" element={<WishList />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
-        </ShoppingCartProvider> 
-        </SaleProductContext.Provider>
-        </FeaturedProductContext.Provider>
-        </ProductContext.Provider>
+        </ShoppingCartProvider>
         </TodoProvider>
     </BrowserRouter>
   );

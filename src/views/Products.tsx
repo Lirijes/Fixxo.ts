@@ -1,22 +1,26 @@
-import React, { useContext } from 'react'
+import React, { useEffect } from 'react'
 import FooterSection from '../sections/FooterSection'
 import MainMenuSection from '../sections/MainMenuSection'
 import ProductGridSection from '../sections/ProductGridSection'
 import BreadcrumbSection from '../sections/BreadcrumbSection'
-import { ProductContext } from '../context/Context'
+import { ProductContext, ProductContextType } from '../context/ProductContext'
 
 const Products = () => {
 
   let currentPage = "Products"
-    window.top.document.title = `${currentPage} || Fixxo` 
+    document.title = `${currentPage} || Fixxo` 
 
-  const productContext = useContext(ProductContext);
+    const {getallProducts, allProducts} = React.useContext(ProductContext) as ProductContextType;
+
+    useEffect(() => {
+      getallProducts()
+    })
 
   return (
     <>
-      <MainMenuSection />
-      <BreadcrumbSection currentPage="Products" />
-      <ProductGridSection titel="Product Grid Section" items={productContext} />
+      <MainMenuSection button={undefined} link={''} icon={''} quantity={''} hideOnMobile={undefined} />
+      <BreadcrumbSection currentPage="Products" parentPage={''} />
+      <ProductGridSection title="Product Grid Section" items={allProducts} />
       <FooterSection />
     </>
   )

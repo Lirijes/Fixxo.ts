@@ -3,7 +3,7 @@ export interface Product {
     name: string
     description?: string
     price: number
-    imageName: string
+    imageName: string 
     category: string
     discountprice: number
 }

@@ -6,7 +6,7 @@ import MainMenuSection from '../sections/MainMenuSection'
 const ShoppingCart = () => {
   return (
     <>
-      <MainMenuSection />
+      <MainMenuSection button={undefined} link={''} icon={''} quantity={''} hideOnMobile={undefined} />
       <Counter init={0} />
       <FooterSection />
     </>

@@ -1,4 +1,6 @@
-import React, { createContext, useContext, useState } from "react"
+export {}
+
+/* import React, { createContext, useContext, useState } from "react"
 
 export interface MenuIconContextType {
     button: (e:React.FormEvent) => void
@@ -34,3 +36,4 @@ const MenuIconProvider = ({children}: MenuIconProviderProps) => {
 }
 
 export default MenuIconProvider
+ */

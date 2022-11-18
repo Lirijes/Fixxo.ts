@@ -3,7 +3,7 @@ import ProductCard from '../components/ProductCard'
 import { Product } from '../models/productModel'
 
 interface ProductCardProps {
-  items: Product
+  items: Product[]
   title: string
 }
 

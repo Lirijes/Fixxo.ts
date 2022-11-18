@@ -5,7 +5,7 @@ import MainMenuSection from '../sections/MainMenuSection'
 const Search = () => {
   return (
     <>
-      <MainMenuSection />
+      <MainMenuSection button={undefined} link={''} icon={''} quantity={''} hideOnMobile={undefined} />
       <h1> search</h1>
       <FooterSection />
     </>

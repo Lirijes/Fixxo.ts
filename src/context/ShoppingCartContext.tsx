@@ -1,15 +1,23 @@
 import React, { createContext, useState, useContext } from "react";
 import ShoppingCart from "../components/ShoppingCart";
+import { Product } from "../models/productModel";
 
 export interface ShoppingCartContextType {
-    cartItems: number | undefined
-    setCartItems: React.Dispatch<React.SetStateAction<number | undefined>>
-    cartQuantity: number
-    incrementQuantity: number
-    decrementQuantity: number
-    removeItem: (articleNumber: string) => void
+    cartItem: Product[]
+
+    cartItems: Product[]
+    setCartItems: (value: any) => void//React.Dispatch<React.SetStateAction<number | undefined>>
+    
+    cartQuantity: number | string
+    
+    incrementQuantity: (cartItem: any) => void
+    decrementQuantity: (cartItem: any) => void
+    removeItem: (articleNumber: string) => []
     quantity: string | number
-    item: string
+    getItemQuantity: (articleNumber: any) => any
+
+    item: (articleNumber: string) => void
+    items: (articleNumber: string) => void
 }
 
 interface ShoppingCartProviderProps {
@@ -29,7 +37,7 @@ export const ShoppingCartProvider = ({children} : ShoppingCartProviderProps) => 
         (quantity, item) => item.quantity + quantity, 0
     )
 
-    const getItemQuantity = (articleNumber) => {
+    const getItemQuantity = (articleNumber = []) => {
         return cartItems.find(item => item.articleNumber === articleNumber)?.quantity || 0 //letar efter hur många antal av en produkt det finns i cartitems som är vår kundvagn
     }
 

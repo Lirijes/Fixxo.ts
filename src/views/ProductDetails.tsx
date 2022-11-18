@@ -4,26 +4,24 @@ import FooterSection from '../sections/FooterSection'
 import { useParams } from 'react-router-dom'
 import BreadcrumbSection from '../sections/BreadcrumbSection'
 import ProductDescriptionSection from '../sections/ProductDescriptionSection'
+import { Product } from '../models/productModel'
+import { ProductContext, ProductContextType } from '../context/ProductContext'
 
 
-const ProductDetails = () => {
-  const {id} = useParams()
-  const [product, setProduct] = useState({})
+const ProductDetails: React.FC<Product> = (Product) => {
 
-  useEffect(() =>  {
-    const fetchData = async () => {
-      const result = await fetch(`https://win22-webapi.azurewebsites.net/api/products/${id}`)
-      setProduct(await result.json())
-    }
-    fetchData()
+  const {product, getProduct} = React.useContext(ProductContext) as ProductContextType;
+
+  useEffect(() => {
+    getProduct(articleNumber)
   }, [])
 
     return (
       <>
-          <MainMenuSection />
+          <MainMenuSection button={undefined} link={''} icon={''} quantity={''} hideOnMobile={undefined} />
           <p className="top-info">Get 25% OFF at the Fixxo Selection - Shop Now!</p>
-          <BreadcrumbSection parentPage="Product Description" currentPage={product.name} />
-          <ProductDescriptionSection product={product} />
+          <BreadcrumbSection parentPage="Product Description" currentPage={Product.name} />
+          <ProductDescriptionSection items={product} />
           <FooterSection />
       </>
   )

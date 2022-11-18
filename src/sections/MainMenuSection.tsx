@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import MenuIcon from '../components/MenuIcon'
-import { useShoppingCart } from '../context/ShoppingCartContext'
+import MenuIcon, { Props } from '../components/MenuIcon'
+import { ShoppingCartContext, ShoppingCartContextType } from '../context/ShoppingCartContext'
 
 
-const MainMenuSection: React.FC  = () => {
+const MainMenuSection: React.FC<Props> = () => {
   const [showMenu, setShowMenu] = useState(false)
-  const { cartQuantity } = useShoppingCart() //cartquantity kommer från vårt useshoppingcart som kommer från vår context 
+  const { cartQuantity } = React.useContext(ShoppingCartContext) as ShoppingCartContextType; //cartquantity kommer från vårt useshoppingcart som kommer från vår context 
 
   
   const toggleMenu = () => {
@@ -24,9 +24,9 @@ const MainMenuSection: React.FC  = () => {
                 <NavLink className="menu-link" to="/contact" end>Contact</NavLink>
             </div>
             <span className="circle-icon">
-                <MenuIcon link="/search" icon="fa-regular fa-magnifying-glass" />
-                <MenuIcon hideOnMobile={true} link="/compare" icon="fa-regular fa-code-compare" /> {/* hideonmobile är en klass i MenuIcon som gör att knappen döljer sig vid en viss px med bootstrap */}
-                <MenuIcon hideOnMobile={true} quantity="3" link="/wishlist" icon="fa-regular fa-heart" />
+                <MenuIcon link="/search" icon="fa-regular fa-magnifying-glass" button={undefined} quantity={''} hideOnMobile={undefined} />
+                <MenuIcon hideOnMobile={true} link="/compare" icon="fa-regular fa-code-compare" button={undefined} quantity={''} /> {/* hideonmobile är en klass i MenuIcon som gör att knappen döljer sig vid en viss px med bootstrap */}
+                <MenuIcon hideOnMobile={true} quantity="3" link="/wishlist" icon="fa-regular fa-heart" button={undefined} />
 
                 <button className="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart">
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-theme">{cartQuantity}</span>

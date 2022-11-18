@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useShoppingCart } from '../context/ShoppingCartContext'
+import { ShoppingCartContext, ShoppingCartContextType } from '../context/ShoppingCartContext'
 import { Product } from '../models/productModel'
 
 interface ProductCardProps {
@@ -8,7 +8,7 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({item}) => {
-    const { incrementQuantity } = useShoppingCart()
+    const { incrementQuantity } = React.useContext(ShoppingCartContext) as ShoppingCartContextType;
 
   return (
     <div className="col">

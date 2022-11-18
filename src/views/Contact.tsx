@@ -6,13 +6,13 @@ import MainMenuSection from '../sections/MainMenuSection'
 import MapSection from '../sections/MapSection'
 
 
-const Contact = () => {
-  window.top.document.title = 'Contact | Fixxo.' /* visar titel på tab */
+const Contact: React.FC = () => {
+  document.title = 'Contact | Fixxo.' /* visar titel på tab */
 
   return (
     <>
-      <MainMenuSection />
-      <BreadcrumbSection currentPage="Contact" />
+      <MainMenuSection button={undefined} link={''} icon={''} quantity={''} hideOnMobile={undefined} />
+      <BreadcrumbSection currentPage="Contact" parentPage={''} />
       <MapSection />
       <ContactUsSection />
       <FooterSection />

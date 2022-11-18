@@ -1,21 +1,22 @@
 import React from 'react'
+import { Product } from '../models/productModel'
 
 
-const ProductDescriptionSection: React.FC  = ({product}) => {
+const ProductDescriptionSection: React.FC<Product> = (Product) => {
 
   return (
     <>
         <div className="product-description container">
             <div className="product-info-left">
                 <div className="product-images">
-                    <img className="big-img" src={product.imageName} alt="" />
+                    <img className="big-img" src={Product.imageName} alt="" />
                 </div>
             </div>
 
             <div className="product-info-right">
                 <div className="product-text">
-                    <h1>{product.name}</h1>
-                    <p className="product-id">ARTNR: {product.articleNumber} BRAND: Fixxo.</p>
+                    <h1>{Product.name}</h1>
+                    <p className="product-id">ARTNR: {Product.articleNumber} BRAND: Fixxo.</p>
                     <div className="stars">
                         <i className="fa-solid fa-star"></i>
                         <i className="fa-solid fa-star"></i>
@@ -23,7 +24,7 @@ const ProductDescriptionSection: React.FC  = ({product}) => {
                         <i className="fa-solid fa-star"></i>
                         <i className="fa-solid fa-star"></i>
                     </div>
-                    <p className="item-price">$ {product.price}</p>
+                    <p className="item-price">$ {Product.price}</p>
                     <p className="item-info">
                         Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly. (read more)
                     </p>

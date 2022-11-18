@@ -1,14 +1,18 @@
 import React from 'react'
-import { useShoppingCart } from '../context/ShoppingCartContext'
+import { ShoppingCartContext, ShoppingCartContextType, useShoppingCart } from '../context/ShoppingCartContext'
+import { Product } from '../models/productModel';
 
+interface props {
+    item: Product[] 
+}
 
-const ShoppingCartItem: React.FC = ({item}) => {
-    const { incrementQuantity, decrementQuantity, removeItem } = useShoppingCart()
+const ShoppingCartItem: React.FC<props> = ({item = []}) => {
+    const { incrementQuantity, decrementQuantity, removeItem } = React.useContext(ShoppingCartContext) as ShoppingCartContextType;
 
   return (
     <div className="shoppingcart-item">
         <div className="item-image">
-            <img src={item.product.imageName} alt={item.product.name} />
+            <img src={item.imageName} alt={item.product.name} />
         </div>
         <div className="item-info">
             <div className="item-info-name">{item.product.name}</div>
