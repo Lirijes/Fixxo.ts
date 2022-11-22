@@ -13,7 +13,7 @@ const ProductDetails: React.FC<Product> = (Product) => {
   const {product, getProduct} = React.useContext(ProductContext) as ProductContextType;
 
   useEffect(() => {
-    getProduct(articleNumber)
+    getProduct()
   }, [])
 
     return (

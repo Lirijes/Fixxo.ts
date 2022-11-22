@@ -1,4 +1,6 @@
-import { createContext, useContext, useState } from "react";
+export {}
+
+/* import { createContext, useContext, useState } from "react";
 import { submitData, validate } from "../assets/scripts/Validation";
 import { ContactUs } from "../models/contactModel";
 
@@ -34,7 +36,7 @@ export const ContactUsProvider = ({children}: ContactUsProviderProps) => {
         switch (id) {
 
             case 'name':
-                setName(value) /* man kallar på name i detta fall, informationen som skrivs in läggs in i value */
+                setName(value) // man kallar på name i detta fall, informationen som skrivs in läggs in i value 
                 break
 
             case 'email':
@@ -49,16 +51,16 @@ export const ContactUsProvider = ({children}: ContactUsProviderProps) => {
                 break
         }
 
-        setErrors({...errors, [id]: validate(e)}) /* genom att sätta in id så anropar man key i detta fall name, email och comment */
+        setErrors({...errors, [id]: validate(e)}) // genom att sätta in id så anropar man key i detta fall name, email och comment
     }
 
     const handleSubmit = async (e:React.FormEvent) => {
-        e.preventDefault()  /* stänger av standardbeteendet */
+        e.preventDefault()  // stänger av standardbeteendet
         setErrors(validate[ContactUs, {name, email, comments}])
         
         if (errors.name === null && errors.email === null && errors.comments === null) {
             
-            let json = JSON.stringify({name, email, comments}) /* datan som skickas in görs om till json objekt */
+            let json = JSON.stringify({name, email, comments}) // datan som skickas in görs om till json objekt 
 
             setName('')
             setEmail('')
@@ -84,4 +86,4 @@ export const ContactUsProvider = ({children}: ContactUsProviderProps) => {
     )
 }
 
-export default ContactUsProvider
+export default ContactUsProvider */

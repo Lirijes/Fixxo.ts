@@ -1,9 +1,11 @@
+export {}
+
 import React from 'react'
-import { useShoppingCart } from '../context/ShoppingCartContext'
-import ShoppingCartItem from './ShoppingCartItem'
+//import { useShoppingCart } from '../context/ShoppingCartContext'
+//import ShoppingCartItem from './ShoppingCartItem'
 
 const ShoppingCart = () => {
-  const { cartItems } = useShoppingCart()
+  //const { cartItems } = useShoppingCart()
 
   return (
     <div className="shoppingcart offcanvas offcanvas-end" tabIndex="-1" id="shoppingCart" aria-labelledby="shoppingCartLabel">

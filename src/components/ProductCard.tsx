@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { ShoppingCartContext, ShoppingCartContextType } from '../context/ShoppingCartContext'
+//import { ShoppingCartContext, ShoppingCartContextType } from '../context/ShoppingCartContext'
 import { Product } from '../models/productModel'
 
 interface ProductCardProps {
@@ -8,7 +8,7 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({item}) => {
-    const { incrementQuantity } = React.useContext(ShoppingCartContext) as ShoppingCartContextType;
+    //const { incrementQuantity } = React.useContext(ShoppingCartContext) as ShoppingCartContextType;
 
   return (
     <div className="col">
@@ -22,7 +22,7 @@ const ProductCard: React.FC<ProductCardProps> = ({item}) => {
                     <button className="btn btn-light"><i className="fa-regular fa-code-compare"></i></button>
                 </li>
                 <li>
-                    <button onClick={() => incrementQuantity({articleNumber: item.articleNumber, product: item})} className="btn btn-light"><i className="fa-regular fa-bag-shopping"></i></button>
+                    <button /* onClick={() => incrementQuantity({articleNumber: item.articleNumber, product: item})} */ className="btn btn-light"><i className="fa-regular fa-bag-shopping"></i></button>
                 </li>
             </ul>
             <div className="card-body"> 

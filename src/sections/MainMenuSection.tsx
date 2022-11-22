@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import MenuIcon, { Props } from '../components/MenuIcon'
-import { ShoppingCartContext, ShoppingCartContextType } from '../context/ShoppingCartContext'
+// import { ShoppingCartContext, ShoppingCartContextType } from '../context/ShoppingCartContext'
 
 
 const MainMenuSection: React.FC<Props> = () => {
   const [showMenu, setShowMenu] = useState(false)
-  const { cartQuantity } = React.useContext(ShoppingCartContext) as ShoppingCartContextType; //cartquantity kommer från vårt useshoppingcart som kommer från vår context 
+  //const { cartQuantity } = React.useContext(ShoppingCartContext) as ShoppingCartContextType; //cartquantity kommer från vårt useshoppingcart som kommer från vår context 
 
   
   const toggleMenu = () => {
@@ -29,7 +29,7 @@ const MainMenuSection: React.FC<Props> = () => {
                 <MenuIcon hideOnMobile={true} quantity="3" link="/wishlist" icon="fa-regular fa-heart" button={undefined} />
 
                 <button className="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#shoppingCart" aria-controls="shoppingCart">
-                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-theme">{cartQuantity}</span>
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-theme">{/* {cartQuantity} */}</span>
                   <i className="fa-regular fa-bag-shopping"></i>
                 </button>
             

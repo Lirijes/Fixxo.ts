@@ -1,4 +1,6 @@
-import React, { createContext, useState, useContext } from "react";
+export {}
+
+/* import React, { createContext, useState, useContext } from "react";
 import ShoppingCart from "../components/ShoppingCart";
 import { Product } from "../models/productModel";
 
@@ -6,7 +8,7 @@ export interface ShoppingCartContextType {
     cartItem: Product[]
 
     cartItems: Product[]
-    setCartItems: (value: any) => void//React.Dispatch<React.SetStateAction<number | undefined>>
+    setCartItems: (value: any) => void //React.Dispatch<React.SetStateAction<number | undefined>>
     
     cartQuantity: number | string
     
@@ -41,7 +43,7 @@ export const ShoppingCartProvider = ({children} : ShoppingCartProviderProps) => 
         return cartItems.find(item => item.articleNumber === articleNumber)?.quantity || 0 //letar efter hur många antal av en produkt det finns i cartitems som är vår kundvagn
     }
 
-    const incrementQuantity = (cartItem) => {// incrementquantity samma sak som att lägga till och öka ett värde 
+    const incrementQuantity = (cartItem) => { // incrementquantity samma sak som att lägga till och öka ett värde 
         const {articleNumber, product} = cartItem
 
         setCartItems(items => {
@@ -53,9 +55,9 @@ export const ShoppingCartProvider = ({children} : ShoppingCartProviderProps) => 
                     if (item.articleNumber === articleNumber) { //kollar så de artikelnummer vi lägger i varukorgen stämmer överrens med artikelnummer på varan vi vill lägga in
                         return {...item, quantity: item.quantity + 1 } //item innehåller articlenumber och product, vi ändrar bara quantity med +1 
                     }
-                    /* else {
+                    else {
                         return item //matchar inte föregående så gör vi bara en return
-                    } */
+                    }
                 })
             }
         })
@@ -91,4 +93,4 @@ export const ShoppingCartProvider = ({children} : ShoppingCartProviderProps) => 
         {children}
         <ShoppingCart />
     </ShoppingCartContext.Provider>
-}
+} */

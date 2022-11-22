@@ -1,4 +1,6 @@
-import React from 'react'
+export {}
+
+/* import React from 'react'
 import { ShoppingCartContext, ShoppingCartContextType, useShoppingCart } from '../context/ShoppingCartContext'
 import { Product } from '../models/productModel';
 
@@ -30,4 +32,4 @@ const ShoppingCartItem: React.FC<props> = ({item = []}) => {
   )
 }
 
-export default ShoppingCartItem
+export default ShoppingCartItem */

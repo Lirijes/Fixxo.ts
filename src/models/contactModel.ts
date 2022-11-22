@@ -1,6 +1,6 @@
 export interface ContactUs {
-    name: string
-    email: string
-    comment: string
+    name: string | null
+    email: string | null
+    comment: string | null 
     id: number
 }

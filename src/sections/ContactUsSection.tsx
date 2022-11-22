@@ -1,10 +1,76 @@
 import React, { useState } from 'react'
 import { submitData, validate } from '../assets/scripts/Validation'
-import { ContactUsContext, ContactUsContextType } from '../context/ContactUsContext'
+//import { ContactUsContext, ContactUsContextType } from '../context/ContactUsContext'
 
+interface props {
+  name: string
+  email: string
+  comments: string
 
-const ContactUsSection: React.FC = () => {
-    const { setErrors, handleSubmit, handleChange } = React.useContext(ContactUsContext) as ContactUsContextType;
+  errors: {}
+  handleChange
+}
+
+const ContactUsSection: React.FC<props> = () => {
+    //const { setErrors, handleSubmit, handleChange } = React.useContext(ContactUsContext) as ContactUsContextType;
+
+    let currentPage = "Contact Us"
+    document.title = `${currentPage} || Fixxo` /* visar titel på tab, överröstar den som finns på contact.js */
+  
+    const [name, setName] = useState<string>('') /* useState lagrar data, i detta fall namn */ 
+    const [email, setEmail] = useState<string>('')
+    const [comments, setComments] = useState<string>('')
+    const [errors, setErrors] = useState({})
+    const [submitted, setSubmitted] = useState(false)
+  
+    const handleChange = (e) => {
+        const {id, value} = e.target /* man hämtar ut värden till variabler genom detta */
+    
+        switch (id) {
+
+            case 'name':
+                setName(value) /* man kallar på name i detta fall, informationen som skrivs in läggs in i value */
+                break
+
+            case 'email':
+                setEmail(value)
+                break
+
+            case 'comments':
+                setComments(value)
+                break
+
+            default:
+                break
+        }
+  
+        setErrors({...errors, [id]: validate(e)}) /* genom att sätta in id så anropar man key i detta fall name, email och comment */
+    }
+  
+    const handleSubmit = async (e:React.FormEvent) => {
+        e.preventDefault()  /* stänger av standardbeteendet */
+        setErrors(validate(e, {name, email, comments})) /* tar in validate som kommer ta emot värden som kommer från olika id:n */
+        
+        if (errors.name === null && errors.email === null && errors.comments === null) {
+            
+            let json = JSON.stringify({name, email, comments}) /* datan som skickas in görs om till json objekt */
+
+            setName('')
+            setEmail('')
+            setComments('')
+            setErrors({})
+
+            if(await submitData('https://win22-webapi.azurewebsites.net/api/contactform', 'POST', json)) {
+                setSubmitted(true)
+            }
+            else {
+                setSubmitted(false)
+            }
+        } 
+        else {
+            setSubmitted(false)
+        }
+    }
 
   return (
     <section className="contact-us">
